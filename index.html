@@ -9,18 +9,25 @@
 	</head>
 	<body>
 		<header>
-			<nav class="cyan darken-1">
+			<nav class="deep-purple darken-3 nav-extended">
 				<div class="nav-wrapper container">
-				  <a href="#" class="brand-logo titulo">Cálculo de IMC de pacientes</a>
+				  <a href="#" class="brand-logo titulo">Cálculo de IMC</a>
+				  <ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="#pacientes">Pacientes</a></li>
+					<li><a href="#adicionar">Adicionar</a></li>
+				  </ul>
 				</div>
 			</nav>
 		</header>
-		<main>
-			<section class="container">
-				<h3>Meus pacientes</h3>
-				<label for="filtrar-tabela">Buscar: </label>
+		<div class="container">
+			<div id="pacientes">
+				<h1 class="title">Tabela de pacientes</h1>
+				<p>Para excluir um paciente, busque o paciente e clique duas vezes na linha.</p>
+				
+				<label for="filtrar-tabela">Buscar:</label>
 				<input type="text" name="filtro" id="filtrar-tabela" placeholder="Digite o nome do paciente">
-				<table class="highlight responsive-table">
+
+				<table class="highlight responsive-table centered">
 					<thead>
 						<tr>
 							<th>Nome</th>
@@ -72,43 +79,44 @@
 					</tbody>
 				</table>
 				<span id="erro-ajax" class="invisivel">Erro ao buscar os pacientes</span>
-				<button id="buscar-pacientes" class="botao bto-principal waves-effect waves-light btn-large">Buscar Pacientes</button>
+				<button id="buscar-pacientes" class="btn botao bto-principal deep-purple darken-3 waves-effect waves-light">Buscar mais pacientes</button>
+			</div>
 
-			</section>
-		</main>
+			<div id="adicionar">
+				<h3 id="titulo-form" class="title">Adicionar novo paciente</h3>
+				<ul id="mensagens-erro"></ul>
+				<form id="form-adiciona">
+					<div class="row">
+						<div class="grupo col s6">
+							<label for="nome">Nome:</label>
+							<input id="nome" name="nome" type="text" placeholder="digite o nome do seu paciente" class="campo">
+						</div>
+						<div class="grupo col s6">
+							<label for="peso">Peso:</label>
+							<input id="peso" name="peso" type="text" placeholder="digite o peso do seu paciente" class="campo campo-medio">
+						</div>
+						<div class="grupo col s6">
+							<label for="altura">Altura:</label>
+							<input id="altura" name="altura" type="text" placeholder="digite a altura do seu paciente" class="campo campo-medio">
+						</div>
+						<div class="grupo col s6">
+							<label for="gordura">% de Gordura:</label>
+							<input id="gordura" type="text" placeholder="digite a porcentagem de gordura do seu paciente" class="campo campo-medio">
+						</div>
 
-		<section class="container">
-		    <h3 id="titulo-form">Adicionar novo paciente</h3>
-			<ul id="mensagens-erro"></ul>
-		    <form id="form-adiciona">
-		        <div class="">
-		            <label for="nome">Nome:</label>
-		            <input id="nome" name="nome" type="text" placeholder="digite o nome do seu paciente" class="campo">
-		        </div>
-		        <div class="grupo">
-		            <label for="peso">Peso:</label>
-		            <input id="peso" name="peso" type="text" placeholder="digite o peso do seu paciente" class="campo campo-medio">
-		        </div>
-		        <div class="grupo">
-		            <label for="altura">Altura:</label>
-		            <input id="altura" name="altura" type="text" placeholder="digite a altura do seu paciente" class="campo campo-medio">
-		        </div>
-		        <div class="grupo">
-		            <label for="gordura">% de Gordura:</label>
-		            <input id="gordura" type="text" placeholder="digite a porcentagem de gordura do seu paciente" class="campo campo-medio">
-		        </div>
+						<button id="adicionar-paciente" class="btn deep-purple darken-3 waves-effect waves-light botao bto-principal">Adicionar
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
 
-		        <button id="adicionar-paciente" class="btn waves-effect waves-light botao bto-principal">Adicionar
-				</button>
-		    </form>
-		</section>
-
+		<!-- scripts -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 		<script src="js/calcula-imc.js" ></script>
 		<script src="js/form.js" ></script>
 		<script src="js/remover-paciente.js" ></script>
 		<script src="js/filtra.js" ></script>
 		<script src="js/buscar-pacientes.js" ></script>
-
 	</body>
 </html>
